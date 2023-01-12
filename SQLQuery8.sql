@@ -1,0 +1,73 @@
+--INSERT INTO Employee(ID, NAME) VALUES(4, 'DIVYA');                --INSERTION
+--SELECT *FROM Employee;                                            --DISPLAY
+--UPDATE Employee SET CITY= 'JHANSI' WHERE ID=2;                    --UPDATE SINGLE RECORD
+--DELETE FROM Employee WHERE ID=4;                                  --DELETE RECORD
+--ALTER TABLE Employee ADD GENDER VARCHAR(6),MOB INT;               --ALTER TABLE(ADD COLUMN)
+--ALTER TABLE Employee DROP COLUMN WORK;                            --ALTER TABLE(DROP ENTIRE COLUMN)
+--ALTER TABLE Employee ALTER COLUMN NAME TEXT;                      --CHANGE DATA TYPE OF A COLUMN
+--UPDATE Employee SET GENDER = 'FEMALE' WHERE ID BETWEEN 3 AND 4;   --UPDATE RECORD BETWEEN RANGE
+--SELECT DISTINCT CITY FROM Employee;                               --DISPLAY ONLY UNIQUE VALUES 
+--SELECT *FROM Employee WHERE ID=3 OR (NAME='AMAN' AND CITY='JHANSI'); --AND,OR,NOT OPERATION
+------------------------------------------------------------------------------------------------------------------
+ --STORED PROCEDURE IN SQL--
+------------------------------
+--CREATE PROCEDURE FUN                               
+--AS
+--BEGIN
+--SELECT CITY FROM Employee;
+--END
+--FUN;
+----------------------------------------------------------------------------------------------------
+--CREATE PROCEDURE CP1                                         --WITH SINGLE PARAMETER--
+--@ID INT
+--AS
+--BEGIN
+--SELECT *FROM Employee WHERE ID=@ID
+--END
+--CP1 5;
+--------------------------------------------------------------------------------------------------
+--Create proc Cp2                                              --WITH MULTIPLE PARAMETERS--
+--@id int,
+--@SName Varchar(255)
+--as
+--begin
+--select * from Employee where ID = @id AND NAME = @SName
+--end
+--Cp2 2,'AMAN';
+---------------------------------------------------------------------------------------------------
+--ALTER proc Cp2                                         --REUSE OF EXISTING STORED PROCEDURE
+--@id int,
+--@SName Varchar(255)
+--as
+--begin
+--select CITY from Employee where ID = @id AND NAME = @SName
+--end
+--Cp2 2,'AMAN';
+--------------------
+--SP_HELPTEXT CP1;                                --USED TO DISPLAY STORED PROCEDURE QUERY
+---------------------------------------------------------------------------------------------------
+--ALTER proc Cp2                                  --ENCRYPTION IN STORED PROCEDUR QUERY   
+--@id int,
+--@SName Varchar(255)
+--WITH ENCRYPTION
+--as
+--begin
+--select CITY from Employee where ID = @id AND NAME = @SName
+--end
+--Cp2 2,'AMAN';
+-------------------
+--SP_HELPTEXT Cp2;                    --NOW IT WILL DISPLAY A MESSAGE AS Cp2 IS ENCRYPTED
+--------------------------------------------------------------------------------------------------
+--ALTER proc Cp2                                         
+--@id int,
+--@SName Varchar(255)
+--as
+--begin
+--select CITY from Employee where ID = @id AND NAME = @SName
+--end
+--Cp2 2,'AMAN';
+-------------------------------------------------------------------------------------------------
+--SP_HELPTEXT Cp2; 
+-------------------------------------------------------------------------------------------------
+--DROP PROCEDURE CP1; --IT WILL DELETE CP1 STORED PROCEDURE
+

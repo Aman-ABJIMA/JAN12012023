@@ -1,0 +1,18 @@
+/* SQL CASE STATEMENT  */
+SELECT * FROM EMPLOYEE
+---------------------------------------------------
+/* TEMPORARY DATA*/
+SELECT ID, NAME, PARTY = CASE 
+WHEN
+GENDER = 'MALE' THEN 'YES FOR PARTY'
+ELSE 'NOT INVITED'
+END
+FROM Employee;
+----------------------------------------------------
+/*DATA WILL BE SAVED IN NEW COLUMN NAMED AS PARTY!*/
+ALTER TABLE Employee ADD PARTY VARCHAR(15);
+UPDATE Employee SET PARTY = CASE
+WHEN
+GENDER='FEMALE'THEN 'ALLOWED'
+ELSE 'NOT ALLOWED'
+END
